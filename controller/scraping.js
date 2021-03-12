@@ -92,24 +92,9 @@ module.exports = async (req,res) => {
     console.log('Descargando Atendidos...')
 
     if(dif <= 7){
-        await page.waitForTimeout(20000);
+        await page.waitForTimeout(15000);
     }
     
-    if(dif < 14 && dif >7){
-        await page.waitForTimeout(25000);
-    }
-    
-    if(dif < 21 && dif >=14){
-        await page.waitForTimeout(30000);
-    }
-    
-    if(dif < 28 && dif >=21){
-        await page.waitForTimeout(40000);
-    }
-    
-    if(dif < 35 && dif >=28){
-        await page.waitForTimeout(60000);
-    }
     
     console.log('Descarga finalizada')
 
