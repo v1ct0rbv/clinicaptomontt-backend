@@ -92,7 +92,7 @@ module.exports = async (req,res) => {
     console.log('Descargando Atendidos...')
 
     if(dif <= 7){
-        await page.waitForTimeout(10000);
+        await page.waitForTimeout(15000);
     }
     
     
