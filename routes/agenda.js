@@ -154,7 +154,7 @@ setInterval(
             .catch(err => console.log(err))
             
         }
-        if(dateA.getHours() === 13  && dateA.getMinutes() === 0){
+        if(dateA.getHours() === 16  && dateA.getMinutes() === 21){
             console.log('Es hora del scraping')
             scrapingAuto(lunes,domingo)
             .then(res =>
