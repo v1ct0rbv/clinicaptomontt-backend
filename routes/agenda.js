@@ -80,7 +80,7 @@ async function scrapingAuto (x,y){
      await page.click('button#export-button-popup')
      console.log('Descargando Citados...')
  
-     await page.waitForTimeout(12000);
+     await page.waitForTimeout(15000);
      
      
      
