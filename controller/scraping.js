@@ -8,7 +8,7 @@ module.exports = async (req,res) => {
     const password = req.params.password
     const fechaInicio = req.params.fechaInicio
     const fechaFin = req.params.fechaHasta
-    const dif = req.params.dif
+    
 
     const browser = await puppeteer.launch({
         'args' : [
@@ -40,12 +40,12 @@ module.exports = async (req,res) => {
     await page.waitForSelector('select[name="areaSelect"]')
     await page.click('select#areaSelect')
     await page.waitForTimeout(1000);
-    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
    
     //Seleccionar citados
     await page.waitForSelector("select#appointmentStatus");
-    await page.select("select#appointmentStatus", "Booked");
+    await page.select("select#appointmentStatus", "Bofoked");
     
     //Seleccionar fechas
     const input = await page.$('input[name="startDateFilter"]');
@@ -57,43 +57,11 @@ module.exports = async (req,res) => {
     await input2.type(`${fechaFin}`);
         
     //Descargar Citado
-    await page.waitForTimeout(1000);
     await page.click('button#export-button-popup')
     console.log('Descargando Citados...')
 
-    //Seleccionar y descargar Bloqueado
-    await page.select("select#appointmentStatus", "Blocked");
-    await page.click('button#export-button-popup')
-    console.log('Descargando Bloqueados...')
-
-    //Seleccionar y descargar Cancelado
-    await page.select("select#appointmentStatus", "Cancelled");
-    await page.click('button#export-button-popup')
-    console.log('Descargando Cancelados...')
-
-    //Seleccionar y descargar Presentado
-    await page.select("select#appointmentStatus", "CheckIn");
-    await page.click('button#export-button-popup')
-    console.log('Descargando Presentados...')
-
-    //Seleccionar y descargar Confirmado
-    await page.select("select#appointmentStatus", "Confirmed");
-    await page.click('button#export-button-popup')
-    console.log('Descargando Confirmados...')
-
-    //Seleccionar y descargar No presentado
-    await page.select("select#appointmentStatus", "NotPerformed");
-    await page.click('button#export-button-popup')
-    console.log('Descargando No presentados...')
-
-    //Seleccionar y descargar Atendido
-    await page.select("select#appointmentStatus", "SerficePerformed");
-    await page.click('button#export-button-popup')
-    console.log('Descargando Atendidos...')
-
-    if(dif <= 7){
-        await page.waitForTimeout(15000);
-    }
+    await page.waitForTimeout(12000);
+    
     
     
     console.log('Descarga finalizada')
@@ -102,7 +70,7 @@ module.exports = async (req,res) => {
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
 
     res.json({ 
-        data:"hey you have dona a scraping"
+        data:"hey you have done a scraping"
     })
 
     await browser.close();
