@@ -60,7 +60,7 @@ module.exports = async (req,res) => {
     await page.click('button#export-button-popup')
     console.log('Descargando Citados...')
 
-    await page.waitForTimeout(15000);
+    await page.waitForTimeout(12500);
     
     
     
