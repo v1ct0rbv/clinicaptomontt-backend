@@ -118,20 +118,25 @@ setInterval(
             var domingo = dom+domingo.slice(1)
         }
 
+        if(firstday.getDate() < 10){
+            var lun = '0'+firstday.getDate()
+            var lunes = lun+lunes.slice(1)
+        }
+
         console.log(
             diaActual,lunes,domingo,lastday.getDate(),dom
         )
 
         var hoy = new Date();
-        if(hoy.getHours() === 5){
+        // if(hoy.getHours() === 5){
             console.log('Es hora del scraping')
             scrapingAuto(lunes,domingo)
             .then(res =>
                 console.log(res))
             .catch(err => console.log(err))
-        }
+        // }
     }
-    ,1000*60*2)
+    ,1000*60*1)
 
 module.exports = router
 
