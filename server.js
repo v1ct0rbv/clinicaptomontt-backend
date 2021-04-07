@@ -5,6 +5,8 @@ const cors = require('cors')
 const { readdirSync} = require('fs')
 require('dotenv').config()
     
+const path = require('path')
+const puppeteer = require('puppeteer');
 // app
 const app=express()
 
@@ -13,11 +15,8 @@ const app=express()
 
 // middleware
 app.use(morgan('dev'))
-app.use(bodyParser.json({ limit:'1000mb' }))
+app.use(bodyParser.json({ limit:'500mb' }))
 app.use(cors())
-
-
-
 
 //routes middleware
 readdirSync('./routes').map((r) => 
