@@ -136,7 +136,7 @@ setInterval(
             .catch(err => console.log(err))
         // }
     }
-    ,1000*60*60)
+    ,1000*60*60*4)
 
 module.exports = router
 
