@@ -1,15 +1,25 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const { readdirSync} = require('fs')
 require('dotenv').config()
-    
-const path = require('path')
-const puppeteer = require('puppeteer');
+
+
 // app
 const app=express()
 
+// db
+mongoose.connect(process.env.DATABASE,{
+    useNewUrlParser: true,
+    useCreateIndex:true,
+    useFindAndModify:true,
+    useUnifiedTopology:true
+})
+
+.then(() => console.log('DB CONNECTED'))
+.catch(err => console.log(`DB CONNECTION ERR`,err))
 
 
 
