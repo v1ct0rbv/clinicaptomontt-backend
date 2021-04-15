@@ -15,6 +15,7 @@ module.exports = async (req,res) => {
           '--no-sandbox',
           '--disable-setuid-sandbox'
         ]
+
       });
     
     const page = await browser.newPage();

@@ -6,14 +6,17 @@ const puppeteer = require('puppeteer');
 const router = express.Router()
 
 const scraping = require('../controller/scraping')
-const read = require('../controller/read')
-const {create} = require('../controller/agendados')
+const readcsv = require('../controller/read')
+const {create,list,read,remove} = require('../controller/agendados')
 
 //api get
 
 router.get("/scraping/:user/:password/:fechaInicio/:fechaHasta",scraping)
-router.get("/scraping-read",read)
+router.get("/scraping-read",readcsv)
 router.post("/scraping-create",create)
+router.get("/scraping-list",list)
+router.get("/scraping-r/:id",read)
+router.delete("/scraping-remove/:id",remove)
 
 
 
@@ -132,6 +135,7 @@ setInterval(
         .catch(err => console.log(err))
         // }
     }
+    
     ,1000*60*60)
 
 module.exports = router

@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 
 const agendadosSchema = new mongoose.Schema({
-    datos:{
-        type:Array,
-    },
+    
     fechas:{
         type:String
-    }
-})
+    },
+    datos:[],
+},{timestamps:true})
 
 module.exports = mongoose.model('Agendados',agendadosSchema)
